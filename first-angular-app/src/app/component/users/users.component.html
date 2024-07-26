@@ -1,0 +1,5 @@
+@for (user of users(); track user.login.uuid) {
+<span>
+  <app-user-thumbnail [userDetail]="user" [selected]="user.login.uuid === currentUserId() " (onSelectedUser)="onSelectUser($event)"></app-user-thumbnail>
+</span>
+}

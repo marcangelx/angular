@@ -1,0 +1,9 @@
+<app-header />
+
+<main>
+
+  <app-users (selectedUser)="onSelectUser($event)" />
+  @if(selectedUser) {
+    <app-tasks [user]="selectedUser" />
+  }
+</main>

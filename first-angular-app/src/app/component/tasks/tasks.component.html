@@ -1,0 +1,29 @@
+  @if(showAddTask()) {
+    <app-new-task (showDialog)="onShowDialong()" [userId]="user().login.uuid"></app-new-task>
+  }
+
+
+  <div class="user-info">
+    <h2>{{fullName()}}</h2>
+    <p>Email: {{ user().email }}</p>
+    <p>Location: {{ user().location.state }}</p>
+    <p>ID: {{ user().login.uuid }}</p>
+    <img [src]="user().picture.large" alt="user().name.title" />
+  </div>
+
+
+  <section id="tasks">
+    <header>
+      <h2>{{user().name.title}} {{fullName()}}'s Tasks</h2>
+      <menu>
+        <button (click)="addTask()">Add Task</button>
+      </menu>
+    </header>
+    <ul>
+      @for(userTask of userTasks(); track userTask.id) {
+        <li>
+          <app-task [task]="userTask"></app-task>
+        </li>
+      }
+    </ul>
+  </section>

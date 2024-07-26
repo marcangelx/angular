@@ -1,0 +1,6 @@
+<div>
+<button (click)="onSelect()" [class.active]="selected()">
+  <img [src]="userDetail().picture.thumbnail" alt="userDetail().name.title" />
+  <span> {{fullName()}}</span>
+</button>
+</div>
